@@ -2,6 +2,7 @@
 
 HOME_DIR=
 HOST_USER=
+HOST_DIR=
 
 if [ -z "$1" ]; then
   echo "This script requires 1 commandline argument. Exiting."
@@ -22,6 +23,12 @@ if [ ! -d "$HOME_DIR/.unison" ]
 then
     mkdir $HOME_DIR/.unison
     chown $HOST_USER:$HOST_USER $HOME_DIR/.unison
+fi
+
+if [ ! -d "$HOST_DIR" ]
+then
+    mkdir $HOST_DIR
+    chown $HOST_USER:$HOST_USER $HOST_DIR
 fi
 
 #Move sync.sh to opt
