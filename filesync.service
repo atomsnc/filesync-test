@@ -1,0 +1,13 @@
+[Unit]
+Description=filesync
+After=network.target
+Wants=filesync.timer
+
+[Service]
+Type=oneshot
+User=
+WorkingDirectory=
+ExecStart=/usr/bin/unison default
+
+[Install]
+WantedBy=multi-user.target

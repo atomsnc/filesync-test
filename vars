@@ -1,0 +1,16 @@
+#!/bin/bash
+
+HOST1_USER=deployee
+HOST1_HOME=/home/deployee
+HOST1_DIR=$HOST1_HOME/dir-sync
+HOST1_MAX_SIZE_DIR=500000
+#Hostname can also be DNS.
+HOST1_HOSTNAME=10.8.0.100
+
+HOST2_USER=deployer
+HOST2_HOME=/home/deployer
+HOST2_DIR=$HOST2_HOME/dir-sync
+HOST2_MAX_SIZE_DIR=600000
+#Hostname can also be DNS.
+HOST2_HOSTNAME=10.8.0.99
+

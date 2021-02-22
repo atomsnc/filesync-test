@@ -1,0 +1,15 @@
+
+# Unison preferences file
+
+#root=
+#root=
+
+#
+
+auto=true
+batch=true
+confirmbigdel=true
+prefer=newer
+silent=true
+times=true
+copythreshold=1000

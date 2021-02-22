@@ -1,0 +1,10 @@
+[Unit]
+Description=filesync
+Requires=filesync.service
+
+[Timer]
+Unit=filesync.service
+OnCalendar=
+
+[Install]
+WantedBy=timers.target
