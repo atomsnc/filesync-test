@@ -51,6 +51,7 @@ sed -i "/^MAX_SIZE_DIR_LOCAL=/ s;$;$HOST1_MAX_SIZE_DIR;" $HOST1/sync.sh
 sed -i "/^MAX_SIZE_DIR_REMOTE=/ s;$;$HOST2_MAX_SIZE_DIR;" $HOST1/sync.sh
 sed -i "/^HOSTNAME_REMOTE=/ s;$;$HOST2_HOSTNAME;" $HOST1/sync.sh
 sed -i "/^HOST_USER_REMOTE=/ s;$;$HOST2_USER;" $HOST1/sync.sh
+sed -i "/^HOST_USER=/ s;$;$HOST1_USER;" $HOST1/sync.sh
 
 sed -i "/^DIR_LOCAL=/ s;$;$HOST2_DIR;" $HOST2/sync.sh
 sed -i "/^DIR_REMOTE=/ s;$;$HOST1_DIR;" $HOST2/sync.sh
@@ -58,6 +59,7 @@ sed -i "/^MAX_SIZE_DIR_LOCAL=/ s;$;$HOST2_MAX_SIZE_DIR;" $HOST2/sync.sh
 sed -i "/^MAX_SIZE_DIR_REMOTE=/ s;$;$HOST1_MAX_SIZE_DIR;" $HOST2/sync.sh
 sed -i "/^HOSTNAME_REMOTE=/ s;$;$HOST1_HOSTNAME;" $HOST2/sync.sh
 sed -i "/^HOST_USER_REMOTE=/ s;$;$HOST1_USER;" $HOST2/sync.sh
+sed -i "/^HOST_USER=/ s;$;$HOST2_USER;" $HOST2/sync.sh
 
 #Add home variable value in deploy.sh
 sed -i "/^HOME_DIR=/ s;$;$HOST1_HOME;" $HOST1/deploy.sh

@@ -6,6 +6,14 @@ MAX_SIZE_DIR_LOCAL=
 MAX_SIZE_DIR_REMOTE=
 HOSTNAME_REMOTE=
 HOST_USER_REMOTE=
+HOST_USER=
+
+#Check if job already running
+if [ $(who -s | grep $HOST_USER | grep -c "$HOSTNAME_REMOTE"')') -ne 0 ]; then
+        echo "Job already running from remote computer. Skipping."
+        exit 0
+fi
+
 
 SIZE_DIR_LOCAL=$(du --max-depth=0 "$DIR_LOCAL" | cut -f1)
 echo "Size of $DIR_LOCAL is $SIZE_DIR_LOCAL bytes."
