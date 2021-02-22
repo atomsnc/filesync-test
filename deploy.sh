@@ -24,6 +24,9 @@ then
     chown $HOST_USER:$HOST_USER $HOME_DIR/.unison
 fi
 
+#Move sync.sh to opt
+cp sync.sh /opt/
+
 #Copy unison preferences out to the default location.
 cp default.prf $HOME_DIR/.unison/
 chown $HOST_USER:$HOST_USER $HOME_DIR/.unison/default.prf

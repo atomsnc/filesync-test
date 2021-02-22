@@ -7,7 +7,7 @@ Wants=filesync.timer
 Type=oneshot
 User=
 WorkingDirectory=
-ExecStart=/usr/bin/unison default
+ExecStart=/bin/bash /opt/sync.sh
 
 [Install]
 WantedBy=multi-user.target
