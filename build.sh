@@ -39,10 +39,10 @@ cp filesync.timer $HOST2/
 
 #Add root variable values in default.prf
 sed -i "0,/#root=/{s;#root=;root=$HOST1_DIR;}" $HOST1/default.prf
-sed -i "0,/#root=/{s;#root=;root=ssh://$HOST2_HOSTNAME/$HOST2_DIR;}" $HOST1/default.prf
+sed -i "0,/#root=/{s;#root=;root=ssh://$HOST2_USER@$HOST2_HOSTNAME/$HOST2_DIR;}" $HOST1/default.prf
 
 sed -i "0,/#root=/{s;#root=;root=$HOST2_DIR;}" $HOST2/default.prf
-sed -i "0,/#root=/{s;#root=;root=ssh://$HOST1_HOSTNAME/$HOST1_DIR;}" $HOST2/default.prf
+sed -i "0,/#root=/{s;#root=;root=ssh://$HOST1_USER@$HOST1_HOSTNAME/$HOST1_DIR;}" $HOST2/default.prf
 
 #Add variable values in sync.sh
 sed -i "/^DIR_LOCAL=/ s;$;$HOST1_DIR;" $HOST1/sync.sh
@@ -61,7 +61,10 @@ sed -i "/^HOST_USER_REMOTE=/ s;$;$HOST1_USER;" $HOST2/sync.sh
 
 #Add home variable value in deploy.sh
 sed -i "/^HOME_DIR=/ s;$;$HOST1_HOME;" $HOST1/deploy.sh
+sed -i "/^HOME_USER=/ s;$;$HOST1_USER;" $HOST1/deploy.sh
+
 sed -i "/^HOME_DIR=/ s;$;$HOST2_HOME;" $HOST2/deploy.sh
+sed -i "/^HOME_USER=/ s;$;$HOST2_USER;" $HOST2/deploy.sh
 
 #Add variables to filesync.service
 sed -i "/^WorkingDirectory=/ s;$;$HOST1_DIR;" $HOST1/filesync.service
