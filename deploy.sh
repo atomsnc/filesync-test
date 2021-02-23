@@ -5,6 +5,7 @@ HOST_USER=
 HOST_DIR=
 HOST_DIR_SIZE=
 LOGFILE=/var/log/filesync-lld.log
+STATUS_LOGFILE=/var/log/filesync-status.log
 
 if [ -z "$1" ]; then
   echo "This script requires 1 commandline argument. Exiting."
@@ -64,6 +65,9 @@ fi
 echo "[" > $LOGFILE
 echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$HOST_DIR_SIZE\"	}," >>  $LOGFILE
 echo "]" >> $LOGFILE
+
+touch $STATUS_LOGFILE
+chmod 666 $STATUS_LOGFILE
 
 
 
