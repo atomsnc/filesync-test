@@ -7,6 +7,7 @@ MAX_SIZE_DIR_REMOTE=
 HOSTNAME_REMOTE=
 HOST_USER_REMOTE=
 HOST_USER=
+LOGFILE=/var/log/filesync-status.log
 
 #Check if job already running
 if [ $(who -s | grep $HOST_USER | grep -c "$HOSTNAME_REMOTE"')') -ne 0 ]; then
@@ -37,6 +38,7 @@ OVERLIMIT_REMOTE_LOCAL=$(echo $SIZE_DIR_REMOTE'>'$MAX_SIZE_DIR_LOCAL | bc -l)
 if [ $OVERLIMIT_LOCAL -eq 1 ]; then
 	echo "Folder $DIR_LOCAL is overlimit."
 	echo "Setting overlimit watch to 1."
+	echo 4 > $LOGFILE
 	exit 0
 fi
 
@@ -51,6 +53,7 @@ fi
 if [ $OVERLIMIT_LOCAL_REMOTE -eq 1 ]; then
 	echo "Folder $DIR_LOCAL too big against remote limit."
 	echo "Setting overlimit watch to 1."
+	echo 4 > $LOGFILE
 	exit 0
 fi
 
@@ -63,3 +66,5 @@ if [ $OVERLIMIT_REMOTE_LOCAL -eq 1 ]; then
 fi
 
 /usr/bin/unison default
+
+echo $? > $LOGFILE

@@ -53,10 +53,12 @@ fi
 if [ ! -f $TIMER_TARGET ]; then
   cp $TIMER_SOURCE $TIMER_TARGET
   systemctl daemon-reload
+  systemctl restart $TIMER_SOURCE
 fi
 if ! cmp -s $TIMER_SOURCE $TIMER_TARGET > /dev/null 2>&1; then
   cp $TIMER_SOURCE $TIMER_TARGET
   systemctl daemon-reload
+  systemctl restart $TIMER_SOURCE
 fi
 
 echo "[" > $LOGFILE
