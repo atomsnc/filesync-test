@@ -3,6 +3,8 @@
 HOME_DIR=
 HOST_USER=
 HOST_DIR=
+hOST_DIR_SIZE=
+LOGFILE=/var/log/filesync-lld.log
 
 if [ -z "$1" ]; then
   echo "This script requires 1 commandline argument. Exiting."
@@ -56,3 +58,12 @@ if ! cmp -s $TIMER_SOURCE $TIMER_TARGET > /dev/null 2>&1; then
   cp $TIMER_SOURCE $TIMER_TARGET
   systemctl daemon-reload
 fi
+
+echo "{" > $LOGFILE
+echo "\"data\":[" >> $LOGFILE
+echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$hOST_DIR_SIZE\"	}," >>  $LOGFILE
+echo "]" >> $LOGFILE
+echo "}" >> $LOGFILE
+
+
+

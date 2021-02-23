@@ -65,10 +65,12 @@ sed -i "/^HOST_USER=/ s;$;$HOST2_USER;" $HOST2/sync.sh
 sed -i "/^HOME_DIR=/ s;$;$HOST1_HOME;" $HOST1/deploy.sh
 sed -i "/^HOST_DIR=/ s;$;$HOST1_DIR;" $HOST1/deploy.sh
 sed -i "/^HOST_USER=/ s;$;$HOST1_USER;" $HOST1/deploy.sh
+sed -i "/^HOST_DIR_SIZE=/ s;$;$HOST1_MAX_SIZE_DIR;" $HOST1/deploy.sh
 
 sed -i "/^HOME_DIR=/ s;$;$HOST2_HOME;" $HOST2/deploy.sh
 sed -i "/^HOST_DIR=/ s;$;$HOST2_DIR;" $HOST2/deploy.sh
 sed -i "/^HOST_USER=/ s;$;$HOST2_USER;" $HOST2/deploy.sh
+sed -i "/^HOST_DIR_SIZE=/ s;$;$HOST2_MAX_SIZE_DIR;" $HOST2/deploy.sh
 
 #Add variables to filesync.service
 sed -i "/^WorkingDirectory=/ s;$;$HOST1_DIR;" $HOST1/filesync.service
