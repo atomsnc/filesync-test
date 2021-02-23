@@ -3,7 +3,7 @@
 HOME_DIR=
 HOST_USER=
 HOST_DIR=
-hOST_DIR_SIZE=
+HOST_DIR_SIZE=
 LOGFILE=/var/log/filesync-lld.log
 
 if [ -z "$1" ]; then
