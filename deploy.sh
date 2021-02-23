@@ -62,9 +62,11 @@ if ! cmp -s $TIMER_SOURCE $TIMER_TARGET > /dev/null 2>&1; then
   systemctl restart $TIMER_SOURCE
 fi
 
-echo "[" > $LOGFILE
-echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$HOST_DIR_SIZE\"	}," >>  $LOGFILE
-echo "]" >> $LOGFILE
+printf "[\n" > $LOGFILE
+printf "\t{\n" >> $LOGFILE
+printf "\t\t\"{#DIRPATH}\":\"$HOST_DIR\",\n" >> $LOGFILE
+printf "\t\t\"{#DIRSIZE}\":\"$HOST_DIR_SIZE\"\n" >> $LOGFILE
+printf "]\n" >> $LOGFILE
 
 touch $STATUS_LOGFILE
 chmod 666 $STATUS_LOGFILE
