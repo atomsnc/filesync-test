@@ -66,6 +66,7 @@ printf "[\n" > $LOGFILE
 printf "\t{\n" >> $LOGFILE
 printf "\t\t\"{#DIRPATH}\":\"$HOST_DIR\",\n" >> $LOGFILE
 printf "\t\t\"{#DIRSIZE}\":\"$HOST_DIR_SIZE\"\n" >> $LOGFILE
+printf "\t}\n">> $LOGFILE
 printf "]\n" >> $LOGFILE
 
 touch $STATUS_LOGFILE
