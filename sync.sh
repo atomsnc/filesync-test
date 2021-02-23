@@ -17,10 +17,10 @@ fi
 
 
 SIZE_DIR_LOCAL=$(du -k --max-depth=0 "$DIR_LOCAL" | cut -f1)
-echo "Size of $DIR_LOCAL is $SIZE_DIR_LOCAL bytes."
+echo "Size of $DIR_LOCAL is $SIZE_DIR_LOCAL KB."
 
 SIZE_DIR_REMOTE=$(ssh $HOST_USER_REMOTE@$HOSTNAME_REMOTE du -k --max-depth=0 "$DIR_REMOTE" | cut -f1)
-echo "Size of $DIR_REMOTE is $SIZE_DIR_REMOTE bytes."
+echo "Size of $DIR_REMOTE is $SIZE_DIR_REMOTE KB."
 
 #Check if local directory is over max limit
 OVERLIMIT_LOCAL=$(echo $SIZE_DIR_LOCAL'>'$MAX_SIZE_DIR_LOCAL | bc -l)
