@@ -60,7 +60,7 @@ if ! cmp -s $TIMER_SOURCE $TIMER_TARGET > /dev/null 2>&1; then
 fi
 
 echo "[" > $LOGFILE
-echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$hOST_DIR_SIZE\"	}," >>  $LOGFILE
+echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$HOST_DIR_SIZE\"	}," >>  $LOGFILE
 echo "]" >> $LOGFILE
 
 
