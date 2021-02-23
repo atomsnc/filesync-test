@@ -59,7 +59,7 @@ if ! cmp -s $TIMER_SOURCE $TIMER_TARGET > /dev/null 2>&1; then
   systemctl daemon-reload
 fi
 
-echo "[" >> $LOGFILE
+echo "[" > $LOGFILE
 echo "{	\"{#DIRPATH}\":\"$HOST_DIR\",	\"{#DIRSIZE}\":\"$hOST_DIR_SIZE\"	}," >>  $LOGFILE
 echo "]" >> $LOGFILE
 
