@@ -41,15 +41,17 @@ cp filesync.timer $HOST2/
 sed -i "0,/#root=/{s;#root=;root=$HOST1_DIR;}" $HOST1/default.prf
 sed -i "0,/#root=/{s;#root=;root=ssh://$HOST2_USER@$HOST2_HOSTNAME/$HOST2_DIR;}" $HOST1/default.prf
 
-for word in $HOST1_IGNORE; do
-	echo "ignore=$word" >> $HOST1/default.prf
+for ((i = 0; i < ${#HOST1_IGNORE[@]}; i++))
+do
+    echo "${HOST1_IGNORE[$i]}" >> $HOST1/default.prf
 done
 
 sed -i "0,/#root=/{s;#root=;root=$HOST2_DIR;}" $HOST2/default.prf
 sed -i "0,/#root=/{s;#root=;root=ssh://$HOST1_USER@$HOST1_HOSTNAME/$HOST1_DIR;}" $HOST2/default.prf
 
-for word in $HOST2_IGNORE; do
-	echo "ignore=$word" >> $HOST2/default.prf
+for ((i = 0; i < ${#HOST2_IGNORE[@]}; i++))
+do
+    echo "${HOST2_IGNORE[$i]}" >> $HOST2/default.prf
 done
 
 #Add variable values in sync.sh
