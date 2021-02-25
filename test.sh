@@ -21,11 +21,11 @@ then
 fi
 
 #Make unison directory if not present.
-#if [ ! -d "~/.unison" ] 
-#then
-#    mkdir ~/.unison
+if [ ! -d "~/.unison" ] 
+then
+    mkdir ~/.unison
 #    chown jenkins:jenkins ~/.unison
-#fi
+fi
 
 cp default.prf testing.prf
 
