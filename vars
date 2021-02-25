@@ -7,8 +7,8 @@ HOST1_MAX_SIZE_DIR=500000
 #Hostname can also be DNS.
 HOST1_HOSTNAME=10.8.0.100
 HOST1_IGNORE='
-readme
-readme2
+*readme*
+*readme2*
 '
 
 HOST2_USER=deployer
@@ -18,7 +18,7 @@ HOST2_MAX_SIZE_DIR=600000
 #Hostname can also be DNS.
 HOST2_HOSTNAME=10.8.0.99
 HOST2_IGNORE='
-ignore
-ignore2
+*ignore*
+*ignore2*
 '
 
