@@ -43,7 +43,7 @@ sed -i "0,/#root=/{s;#root=;root=ssh://$HOST2_USER@$HOST2_HOSTNAME/$HOST2_DIR;}"
 
 for ((i = 0; i < ${#HOST1_IGNORE[@]}; i++))
 do
-    echo "${HOST1_IGNORE[$i]}" >> $HOST1/default.prf
+    echo "ignore=${HOST1_IGNORE[$i]}" >> $HOST1/default.prf
 done
 
 sed -i "0,/#root=/{s;#root=;root=$HOST2_DIR;}" $HOST2/default.prf
@@ -51,7 +51,7 @@ sed -i "0,/#root=/{s;#root=;root=ssh://$HOST1_USER@$HOST1_HOSTNAME/$HOST1_DIR;}"
 
 for ((i = 0; i < ${#HOST2_IGNORE[@]}; i++))
 do
-    echo "${HOST2_IGNORE[$i]}" >> $HOST2/default.prf
+    echo "ignore=${HOST2_IGNORE[$i]}" >> $HOST2/default.prf
 done
 
 #Add variable values in sync.sh
